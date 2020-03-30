@@ -1,7 +1,8 @@
 ################################# Default configuration ###################
-baseURL = "https://examplesite.com"
-title = "Meghna"
+baseURL = "https://antoinelpp.githube.io"
+title = "Antoine Tavant"
 theme = "meghna-hugo"
+publishDir = "public"
 # post pagination
 paginate = "6"
 # post excerpt
