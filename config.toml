@@ -1,5 +1,5 @@
 ################################# Default configuration ###################
-baseURL = "https://antoinelpp.githube.io"
+baseURL = "https://antoinelpp.github.io"
 title = "Antoine Tavant"
 theme = "meghna-hugo"
 publishDir = "public"
