@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Antoine Cosson-Tavant&#39;s personal site</title>
-    <link>https://antoinetavant.github.io/post/</link>
+    <link>https://localhost:1313/post/</link>
     <description>Recent content in Posts on Antoine Cosson-Tavant&#39;s personal site</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 19 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://antoinetavant.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Debuging Fortran</title>
-      <link>https://antoinetavant.github.io/post/gdb_fortran/</link>
+      <link>https://localhost:1313/post/gdb_fortran/</link>
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://antoinetavant.github.io/post/gdb_fortran/</guid>
+      <guid>https://localhost:1313/post/gdb_fortran/</guid>
       <description>The typical Fortran learning experience is you have to use and develop a old scientifica code for your master/Ph.</description>
     </item>
     
     <item>
       <title>My biblio</title>
-      <link>https://antoinetavant.github.io/post/hello/</link>
+      <link>https://localhost:1313/post/hello/</link>
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://antoinetavant.github.io/post/hello/</guid>
+      <guid>https://localhost:1313/post/hello/</guid>
       <description>Salut !</description>
     </item>
     
