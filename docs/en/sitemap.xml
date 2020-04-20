@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://antoinetavant.github.io/public/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://antoinetavant.github.io/public/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://antoinetavant.github.io/public/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://antoinetavant.github.io/public/post/gdb_fortran/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://antoinetavant.github.io/public/post/hello/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://antoinetavant.github.io/public/post/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://antoinetavant.github.io/public/about/</loc>
+    <lastmod>2019-01-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://antoinetavant.github.io/public/showcase/</loc>
+    <lastmod>2019-01-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://antoinetavant.github.io/public/archive/</loc>
+  </url>
+  
+  <url>
+    <loc>https://antoinetavant.github.io/public/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://antoinetavant.github.io/public/fr/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://antoinetavant.github.io/public/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://antoinetavant.github.io/public/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://antoinetavant.github.io/public/fr/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://antoinetavant.github.io/public/tags/"
+                />
+  </url>
+  
+</urlset>
