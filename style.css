@@ -8,9 +8,34 @@
   display: inline-block;
 }
 
+.post-cover-single{
+  /* Style for smaller cover image on the left */
+  border-radius:8px;
+  margin:40px 20px;
+  width:400px;
+  max-width:400px;
+  box-shadow:0 12px 40px rgba(0,0,0,.15);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .post-content{
   /* style for the short description on the right of the cover image */
   margin-top:70px;
   display: inline-block;
   vertical-align: top;
+}
+
+.post-content-single{
+  /* style for the short description on the right of the cover image */
+}
+
+.post{
+  /* Style of the post itself */
+  width:90%;
+  max-width:1650px;
+  text-align:left;
+  padding:20px;
+  margin:20px auto
 }

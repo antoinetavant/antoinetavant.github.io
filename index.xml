@@ -2,56 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Antoine Cosson-Tavant&#39;s personal site</title>
-    <link>https://antoinetavant.github.io/</link>
+    <link>https://localhost:1313/</link>
     <description>Recent content on Antoine Cosson-Tavant&#39;s personal site</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 19 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://antoinetavant.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Debuging Fortran</title>
-      <link>https://antoinetavant.github.io/post/gdb_fortran/</link>
+      <link>https://localhost:1313/post/gdb_fortran/</link>
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://antoinetavant.github.io/post/gdb_fortran/</guid>
+      <guid>https://localhost:1313/post/gdb_fortran/</guid>
       <description>The typical Fortran learning experience is you have to use and develop a old scientifica code for your master/Ph.</description>
     </item>
     
     <item>
       <title>My biblio</title>
-      <link>https://antoinetavant.github.io/post/hello/</link>
+      <link>https://localhost:1313/post/hello/</link>
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://antoinetavant.github.io/post/hello/</guid>
+      <guid>https://localhost:1313/post/hello/</guid>
       <description>Salut !</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://antoinetavant.github.io/about/</link>
+      <link>https://localhost:1313/about/</link>
       <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://antoinetavant.github.io/about/</guid>
+      <guid>https://localhost:1313/about/</guid>
       <description>Hi there My name is Radek and I&amp;rsquo;m the author of this theme. I made it to help you present your ideas easier.</description>
     </item>
     
     <item>
       <title>Showcase</title>
-      <link>https://antoinetavant.github.io/showcase/</link>
+      <link>https://localhost:1313/showcase/</link>
       <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://antoinetavant.github.io/showcase/</guid>
+      <guid>https://localhost:1313/showcase/</guid>
       <description>Header 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis.</description>
     </item>
     
     <item>
       <title>Archive</title>
-      <link>https://antoinetavant.github.io/archive/</link>
+      <link>https://localhost:1313/archive/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://antoinetavant.github.io/archive/</guid>
+      <guid>https://localhost:1313/archive/</guid>
       <description></description>
     </item>
     
