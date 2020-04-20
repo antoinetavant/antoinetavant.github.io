@@ -1,0 +1,16 @@
+.post-cover{
+  /* Style for smaller cover image on the left */
+  border-radius:8px;
+  margin:40px 20px;
+  width:200px;
+  max-width:860px;
+  box-shadow:0 12px 40px rgba(0,0,0,.15);
+  display: inline-block;
+}
+
+.post-content{
+  /* style for the short description on the right of the cover image */
+  margin-top:70px;
+  display: inline-block;
+  vertical-align: top;
+}
