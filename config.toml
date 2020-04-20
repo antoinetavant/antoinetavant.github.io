@@ -1,5 +1,5 @@
 ################################# Default configuration ###################
-baseURL = "https://antoinetavant.github.io/public/"  # For publication
+baseURL = "https://antoinetavant.github.io/"  # For publication
 # baseURL = "https://localhost:1313/"  # for developpement
 title = "Antoine Tavant"
 theme = "hello-friend"

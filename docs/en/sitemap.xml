@@ -3,74 +3,74 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://antoinetavant.github.io/public/</loc>
+    <loc>https://antoinetavant.github.io/</loc>
     <lastmod>2020-04-19T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://antoinetavant.github.io/public/fr/"
+                href="https://antoinetavant.github.io/fr/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://antoinetavant.github.io/public/"
+                href="https://antoinetavant.github.io/"
                 />
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/public/post/gdb_fortran/</loc>
+    <loc>https://antoinetavant.github.io/post/gdb_fortran/</loc>
     <lastmod>2020-04-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/public/post/hello/</loc>
+    <loc>https://antoinetavant.github.io/post/hello/</loc>
     <lastmod>2020-04-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/public/post/</loc>
+    <loc>https://antoinetavant.github.io/post/</loc>
     <lastmod>2020-04-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/public/about/</loc>
+    <loc>https://antoinetavant.github.io/about/</loc>
     <lastmod>2019-01-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/public/showcase/</loc>
+    <loc>https://antoinetavant.github.io/showcase/</loc>
     <lastmod>2019-01-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/public/archive/</loc>
+    <loc>https://antoinetavant.github.io/archive/</loc>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/public/categories/</loc>
+    <loc>https://antoinetavant.github.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://antoinetavant.github.io/public/fr/categories/"
+                href="https://antoinetavant.github.io/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://antoinetavant.github.io/public/categories/"
+                href="https://antoinetavant.github.io/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/public/tags/</loc>
+    <loc>https://antoinetavant.github.io/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://antoinetavant.github.io/public/fr/tags/"
+                href="https://antoinetavant.github.io/fr/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://antoinetavant.github.io/public/tags/"
+                href="https://antoinetavant.github.io/tags/"
                 />
   </url>
   

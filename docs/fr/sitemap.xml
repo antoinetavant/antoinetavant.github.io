@@ -3,44 +3,44 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://antoinetavant.github.io/public/fr/categories/</loc>
+    <loc>https://antoinetavant.github.io/fr/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://antoinetavant.github.io/public/categories/"
+                href="https://antoinetavant.github.io/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://antoinetavant.github.io/public/fr/categories/"
+                href="https://antoinetavant.github.io/fr/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/public/fr/</loc>
+    <loc>https://antoinetavant.github.io/fr/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://antoinetavant.github.io/public/"
+                href="https://antoinetavant.github.io/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://antoinetavant.github.io/public/fr/"
+                href="https://antoinetavant.github.io/fr/"
                 />
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/public/fr/tags/</loc>
+    <loc>https://antoinetavant.github.io/fr/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://antoinetavant.github.io/public/tags/"
+                href="https://antoinetavant.github.io/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://antoinetavant.github.io/public/fr/tags/"
+                href="https://antoinetavant.github.io/fr/tags/"
                 />
   </url>
   
