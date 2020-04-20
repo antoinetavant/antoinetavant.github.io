@@ -1,17 +1,24 @@
 ################################# Default configuration ###################
-baseURL = "https://antoinelpp.github.io/public/"
+baseURL = "https://antoinetavant.github.io/public/"  # For publication
+# baseURL = "https://localhost:1313/"  # for developpement
 title = "Antoine Tavant"
-theme = "meghna-hugo"
-publishDir = "public"
+theme = "hello-friend"
+publishDir = "docs"
 # post pagination
 paginate = "6"
 # post excerpt
 summaryLength = "15"
-# disqus short name
-disqusShortname = "" # get your shortname form here : https://disqus.com
-# disable language
-disableLanguages = []
 
+[params]
+  # dir name of your blog content (default is `content/posts`)
+  contentTypeName = "post"
+  # "light" or "dark"
+  defaultTheme = "light"
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 2
+  # Enable to show reading time in minutes for posts
+  showReadingTime = false
+  
 ############################# Plugins ##########################
 # css plugins
 [[params.plugins.css]]
@@ -83,29 +90,6 @@ name = "Themefisher"
 URL = "https://themefisher.com/"
 weight = 7
 
-############################# Default Parameters ##########################
-[params]
-logo = "images/logo.png"
-# Meta data
-description = "Responsive Multipurpose Parallax HTML5 Template"
-author = "Themefisher"
-# Google Analitycs
-google_analitycs_id = "" # Your ID
-# post share
-post_share = true
-
-# preloader
-[params.preloader]
-enable = true
-preloader = "images/logo.png"
-
-# google map
-[params.map]
-enable = true
-gmap_api = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"
-map_latitude = "51.5223477"
-map_longitude = "-0.1622023"
-map_marker = "images/marker.png"
 
 ############################# social icons ##########################
 [[params.social]]
@@ -132,19 +116,69 @@ link = "#"
 icon = "ti-pinterest" # themify icon pack : https://themify.me/themify-icons
 link = "#"
 
+[languages]
+  [languages.en]
+    title = "Antoine Cosson-Tavant's personal site"
+    subtitle = "Notes and thoughts of a normal guy"
+    keywords = ""
+    copyright = ""
+    menuMore = "Show more"
+    writtenBy = "Written by Antoine"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+    newerPosts = "Newer posts"
+    olderPosts = "Older posts"
+    minuteReadingTime = "min read"
+    dateFormatSingle = "2006-01-02"
+    dateFormatList = "2006-01-02"
 
-################################ English Language ########################
-[Languages.en]
-languageName = "En"
-languageCode = "en-us"
-contentDir = "content/english"
-weight = 1
-home = "Home"
+    [languages.en.params.logo]
+      logoText = "Antoine Cosson-Tavant's"
+      logoHomeLink = "/"
+    # or
+    #
+    # path = "/img/your-example-logo.svg"
+    # alt = "Your example logo alt text"
 
-################################ France Language ########################
-[Languages.fr]
-languageName = "Fr"
-languageCode = "fr-fr"
-contentDir = "content/french"
-weight = 2
-home = "Accueil"
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about"
+      [[languages.en.menu.main]]
+        identifier = "showcase"
+        name = "Showcase"
+        url = "/showcase"
+        
+  [languages.fr]
+    title = "Site personnel d'Antoine Cosson-Tavant"
+    subtitle = "Notes et pensées d'un gars normal"
+    keywords = ""
+    copyright = ""
+    menuMore = "Show more"
+    writtenBy = "Ecrit par Antoine"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+    newerPosts = "Newer posts"
+    olderPosts = "Older posts"
+    minuteReadingTime = "min read"
+    dateFormatSingle = "2006-01-02"
+    dateFormatList = "2006-01-02"
+
+    [languages.fr.params.logo]
+      logoText = "Antoine Cosson-Tavant"
+      logoHomeLink = "/"
+    # or
+    #
+    # path = "/img/your-example-logo.svg"
+    # alt = "Your example logo alt text"
+
+    [languages.fr.menu]
+      [[languages.fr.menu.main]]
+        identifier = "about"
+        name = "A propos"
+        url = "/about"
+      [[languages.fr.menu.main]]
+        identifier = "showcase"
+        name = "Showcase"
+        url = "/showcase"
