@@ -5,10 +5,15 @@
     <link>https://antoinetavant.github.io/</link>
     <description>Recent content on Antoine Cosson-Tavant&#39;s personal site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 19 Apr 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://antoinetavant.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://antoinetavant.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Évolution de l&#39;émission du transport aérien</title>
+      <link>https://antoinetavant.github.io/post/theshift/</link>
+      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://antoinetavant.github.io/post/theshift/</guid>
+      <description>Projections de l’émission du trafic aérien Le 3 mars 2021, Le Shift Project et Supaero Decarbo , avec la participation des Citoyens pour le Climat et les Shifters, ont publier un rapport &amp;ldquo;Pouvoir Voler en 2050 : quelle aviation dans un monde contraint&amp;rdquo;.</description>
+    </item>
     
     <item>
       <title>Debuging Fortran</title>

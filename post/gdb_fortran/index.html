@@ -12,6 +12,11 @@
 <link rel="canonical" href="https://antoinetavant.github.io/post/gdb_fortran/" />
 
 
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+  }
+</script>
 
 
 
@@ -141,46 +146,28 @@
     
 
     <div class="post-content-single">
-      
-
-<p>The typical Fortran learning experience is you have to use and develop a old scientifica code for your master/Ph.D/Post-doc.
+      <p>The typical Fortran learning experience is you have to use and develop a old scientifica code for your master/Ph.D/Post-doc.
 There is no time to learn both the language, the code, the science behind, as well as the tool used to test, debug and document the code.
 So it usually goes by <code>print *,&quot;here&quot;</code> and <code>print *,there</code>&hellip;</p>
-
 <h1 id="debuging-option">Debuging option</h1>
-
 <p>The first step is to use debugging options.
 With <code>gfortran</code> (the GNU compiler), I use</p>
-
-<pre><code class="language-make">-O0 -g -fbacktrace -ffpe-trap=invalid,zero,overflow -ffree-line-length-none  -Wcharacter-truncation  -Wsurprising  -Waliasing   -Wunused-parameter  -fwhole-file  -fcheck=bounds,do
-</code></pre>
-
-<p>While with intel fortran,</p>
-
-<pre><code class="language-make">-g -O0 -traceback&quot; -debug -check -CB  -fpe0&quot;
-</code></pre>
-
-<h1 id="using-gdb">Using GDB</h1>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-make" data-lang="make"><span style="color:#960050;background-color:#1e0010">-O0</span> <span style="color:#960050;background-color:#1e0010">-g</span> <span style="color:#960050;background-color:#1e0010">-fbacktrace</span> -ffpe-trap<span style="color:#f92672">=</span>invalid,zero,overflow -ffree-line-length-none  -Wcharacter-truncation  -Wsurprising  -Waliasing   -Wunused-parameter  -fwhole-file  -fcheck<span style="color:#f92672">=</span>bounds,do
+</code></pre></div><p>While with intel fortran,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-make" data-lang="make"><span style="color:#960050;background-color:#1e0010">-g</span> <span style="color:#960050;background-color:#1e0010">-O0</span> <span style="color:#960050;background-color:#1e0010">-traceback</span><span style="color:#e6db74">&#34; -debug -check -CB  -fpe0&#34;</span>
+</code></pre></div><h1 id="using-gdb">Using GDB</h1>
 <p>The GNU project debugger (GDB) allows to pause the execution of the code at the moment you want, execute the code step by step, investigate the varables, and much more.
 To use it, you only need to compile the code with (at least) <code>-g</code>.</p>
-
 <p>Then, several methodes can be used: you can launch le code with <code>gdb</code>, or attached it to a running code, or use the tools provided by your IDE.</p>
-
 <h2 id="with-atom">with atom</h2>
-
 <p>I am currently using atom as my &ldquo;enhenced&rdquo; text  editor.
 The package <a href="https://atom.io/packages/dbg" title="atom debugger front end">dbg</a> along with <a href="https://atom.io/packages/dbg-gdb" title="An interative gdb for atom">dbg-gdb</a> can be used to launch the code from atom.
 There are easy to use, but currently lack the possibility (or I could find a way) to execute gdb commands.</p>
-
 <h2 id="with-gdbgui">With <code>gdbgui</code></h2>
-
 <p><a href="https://www.gdbgui.com/">GDBGUI</a> is a graphical user interface for gdb. We can install it with <code>pipx</code>, or <code>pip</code> is use already use virtual envirenments.
 Once intalled, you can launch the debugger from the workingdirectory with</p>
-
-<pre><code class="language-bash">gdbgui &quot;./&lt;executalble&gt; &lt;args&gt;&quot;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gdbgui <span style="color:#e6db74">&#34;./&lt;executalble&gt; &lt;args&gt;&#34;</span>
+</code></pre></div>
     </div>
     
       
@@ -190,6 +177,13 @@ Once intalled, you can launch the debugger from the workingdirectory with</p>
             <hr />
           </div>
           <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://antoinetavant.github.io/post/theshift/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Évolution de l&#39;émission du transport aérien</span>
+                </a>
+              </span>
             
             
               <span class="button next">
@@ -232,7 +226,7 @@ Once intalled, you can launch the debugger from the workingdirectory with</p>
 </a>
 
       <div class="copyright">
-        <span>© 2020 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>© 2021 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
         <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
       </div>
     

@@ -4,10 +4,6 @@
     <title>Categories on Antoine Cosson-Tavant&#39;s personal site</title>
     <link>https://antoinetavant.github.io/categories/</link>
     <description>Recent content in Categories on Antoine Cosson-Tavant&#39;s personal site</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	<atom:link href="https://antoinetavant.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://antoinetavant.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
