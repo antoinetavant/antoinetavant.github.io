@@ -3,44 +3,44 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://localhost:1313/fr/categories/</loc>
+    <loc>https://antoinetavant.github.io/fr/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://localhost:1313/categories/"
+                href="https://antoinetavant.github.io/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://localhost:1313/fr/categories/"
+                href="https://antoinetavant.github.io/fr/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://localhost:1313/fr/</loc>
+    <loc>https://antoinetavant.github.io/fr/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://localhost:1313/"
+                href="https://antoinetavant.github.io/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://localhost:1313/fr/"
+                href="https://antoinetavant.github.io/fr/"
                 />
   </url>
   
   <url>
-    <loc>https://localhost:1313/fr/tags/</loc>
+    <loc>https://antoinetavant.github.io/fr/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://localhost:1313/tags/"
+                href="https://antoinetavant.github.io/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://localhost:1313/fr/tags/"
+                href="https://antoinetavant.github.io/fr/tags/"
                 />
   </url>
   
