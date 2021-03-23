@@ -3,79 +3,79 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://antoinetavant.github.io/</loc>
+    <loc>https://localhost:1313/</loc>
     <lastmod>2021-03-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://antoinetavant.github.io/fr/"
+                href="https://localhost:1313/fr/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://antoinetavant.github.io/"
+                href="https://localhost:1313/"
                 />
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/post/</loc>
+    <loc>https://localhost:1313/post/</loc>
     <lastmod>2021-03-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/post/theshift/</loc>
+    <loc>https://localhost:1313/post/theshift/</loc>
     <lastmod>2021-03-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/post/gdb_fortran/</loc>
+    <loc>https://localhost:1313/post/gdb_fortran/</loc>
     <lastmod>2020-04-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/post/hello/</loc>
+    <loc>https://localhost:1313/post/hello/</loc>
     <lastmod>2020-04-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/about/</loc>
+    <loc>https://localhost:1313/about/</loc>
     <lastmod>2019-01-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/showcase/</loc>
+    <loc>https://localhost:1313/showcase/</loc>
     <lastmod>2019-01-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/archive/</loc>
+    <loc>https://localhost:1313/archive/</loc>
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/categories/</loc>
+    <loc>https://localhost:1313/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://antoinetavant.github.io/fr/categories/"
+                href="https://localhost:1313/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://antoinetavant.github.io/categories/"
+                href="https://localhost:1313/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://antoinetavant.github.io/tags/</loc>
+    <loc>https://localhost:1313/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://antoinetavant.github.io/fr/tags/"
+                href="https://localhost:1313/fr/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://antoinetavant.github.io/tags/"
+                href="https://localhost:1313/tags/"
                 />
   </url>
   
