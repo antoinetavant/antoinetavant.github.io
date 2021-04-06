@@ -34,13 +34,13 @@
 .post{
   /* Style of the post itself */
   width:90%;
-  max-width:1650px;
+  max-width:850px;
   text-align:left;
   padding:20px;
   margin:20px auto
 }
 
-@media screen and (max-width: 750px) {
+/* @media screen and (max-width: 750px) {
     iframe {
       max-width: 90% !important;
       max-height: 90% !important;
@@ -48,4 +48,4 @@
         background-color: inherit;
     }
 }
-
+ */
