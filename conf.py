@@ -10,7 +10,7 @@
 
 import os
 import sys
-import ablog
+#import ablog
 import alabaster
 
 # -- General ABlog Options ----------------------------------------------------
@@ -196,6 +196,10 @@ extensions = [
     'sphinx.ext.todo',
     'alabaster',
     'ablog',
+    'sphinx_design',
+    'sphinx_copybutton',
+    'sphinx_togglebutton',
+    'nbsphinx',
 ]
 
 # The suffix(es) of source filenames.
