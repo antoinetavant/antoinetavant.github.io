@@ -1,4 +1,4 @@
-.. post:: 13 mai 2024
+.. post::
    :tags: blog, airflow
    :author: Antoine Tavant
    :language: fr
