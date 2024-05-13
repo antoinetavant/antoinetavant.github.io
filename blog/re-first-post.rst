@@ -1,9 +1,7 @@
-
-.. antoinetavant.github.io post example, created by `ablog start` on Apr 28, 2024.
-
 .. post:: Apr 28, 2024
    :tags: blog, sphinx
    :author: Antoine Tavant
+   :language: en
 
 New Blog with Sphinx
 ====================

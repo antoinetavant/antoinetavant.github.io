@@ -43,10 +43,11 @@ blog_authors = {
 # links of these languages. Similar to :confval:`blog_authors`, dictionary
 # keys should be used in ``post`` directive to refer to the locations.
 # Default is ``{}``.
-# blog_languages = {
-#    'en': ('English', None),
-# }
-
+blog_languages = {
+   'en': ('English', None),
+   'fr': ('Français', None),
+}
+blog_default_language = "en"
 
 # A dictionary of location names mapping to full display names and
 # links of these locations. Similar to :confval:`blog_authors`, dictionary
@@ -107,9 +108,14 @@ blog_authors = {
 # In addition, there are authors.html, languages.html, and locations.html
 # sidebars that link to author and location archive pages.
 html_sidebars = {
-    '**': [ 'ablog/postcard.html', "search-field.html", "sidebar-nav-bs.html",
-            'ablog/recentposts.html', 'ablog/tagcloud.html',
-            'ablog/categories.html',  'ablog/archives.html',
+    '**': [ 'ablog/postcard.html',
+           "search-field.html",
+           "sidebar-nav-bs.html",
+            'ablog/recentposts.html',
+            'ablog/tagcloud.html',
+            'ablog/categories.html',
+            "ablog/languages.html",
+            'ablog/archives.html',
             
             ],
     }
@@ -231,6 +237,8 @@ release = ""
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
 language = "en"
+locale_dirs = ["locale/"]   # path is example but recommended.
+gettext_compact = True
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -280,7 +288,7 @@ html_theme = 'pydata_sphinx_theme'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'github_button': False,
+    # 'github_button': False,
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
