@@ -1,4 +1,4 @@
-.. post::
+.. post:: May 15, 2024
    :tags: how-to, gitlab
    :author: Antoine Tavant
    :language: en
