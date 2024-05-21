@@ -209,7 +209,7 @@ extensions = [
 ]
 
 # The suffix(es) of source filenames.
-source_suffix = ".rst"
+source_suffix = [".rst"]
 
 # The encoding of source files.
 # source_encoding = 'utf-8-sig'
@@ -374,4 +374,5 @@ html_search_language = 'en'
 # Output file base name for HTML help builder.
 htmlhelp_basename = "antoinetavantgithubiodoc"
 
-
+# -- Options for NbSphinx -----------------------------------------------------
+nbsphinx_execute = 'never' # Execute notebooks before conversion: 'always', 'never', 'auto'
