@@ -288,6 +288,7 @@ html_theme = 'pydata_sphinx_theme'
 # documentation.
 html_theme_options = {
     # 'github_button': False,
+    "navigation_with_keys": False,
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
