@@ -1,0 +1,876 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Use Docker Operator in Airflow Docker &#8212; Antoine Tavant&#39;s Blog</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=187304be"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'blog/airflow_compose_docker_in_docker';</script>
+    <link rel="author" title="About these documents" href="../../about/" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/atom.xml"
+  title="antoinetavant.github.io Blog"
+/>
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Antoine Tavant's Blog</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../about/">
+                        About Antoine Tavant
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/antoinetavant" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../about/">
+                        About Antoine Tavant
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/antoinetavant" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__postcard">
+
+
+<h2>
+  
+  
+  <i class="fa fa-calendar"></i>
+  
+  <span>13 May 2024</span>
+  
+</h2>
+<ul>
+  <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="../author/antoine-tavant/">Antoine Tavant</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    <i class="fa-fw fa fa-language"></i>
+    
+    </span>
+  
+  
+  <a href="../language/english/">English</a>
+  
+  
+  
+</li>
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tags"></i>
+    
+    
+    </span>
+  
+  
+  <a href="../tag/blog/">blog</a>
+  
+  
+  
+  
+  
+  <a href="../tag/airflow/">airflow</a>
+  
+  
+  
+</li>
+
+
+</div>
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="../../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__recentposts">
+<h3>
+  <a href="../">Recent Posts</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="../lire_meteofrance/">
+      21 May - Manipuler les prévision météorologiques avec Python
+    </a>
+  </li>
+  
+  <li>
+    <a href="../testing_package_version_before_deploying/">
+      16 May - Checking package version bump in Gitlab CI/CD
+    </a>
+  </li>
+  
+  <li>
+    <a href="../testing_gitlab_ci_localy/">
+      15 May - Testing Gitlab CI Locally
+    </a>
+  </li>
+  
+  <li>
+    <a href="../re-first-post/">
+      28 April - New Blog with Sphinx
+    </a>
+  </li>
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__tags">
+<link rel="stylesheet" href="../../_static/ablog/tagcloud.css" type="text/css" />
+<h3><a href="../tag/">Tags</a></h3>
+<ul class="ablog-cloud">
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../tag/airflow/">airflow</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="../tag/blog/">blog</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="../tag/gitlab/">gitlab</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="../tag/how-to/">how-to</a>
+  </li>
+  
+  
+  
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../tag/sphinx/">sphinx</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__languages">
+<h3>
+  <a href="../language/">Languages</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../language/english/">English (4)</a>
+  </li>
+    
+  <li>
+    <a href="../language/francais/">Français (1)</a>
+  </li>
+   
+</ul>
+</div>
+</div>
+        <div class="sidebar-primary-item">
+<div class="ablog-sidebar-item ablog__archive">
+<h3>
+  <a href="../archive/">Archives</a>
+</h3>
+<ul>
+  
+  
+  <li>
+    <a href="../2024/">2024 (5)</a>
+  </li>
+  
+  
+</ul>
+</div>
+</div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Use Docker...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+<section id="use-docker-operator-in-airflow-docker">
+<h1>Use Docker Operator in Airflow Docker<a class="headerlink" href="#use-docker-operator-in-airflow-docker" title="Link to this heading">#</a></h1>
+<p>In this post, we will see how to use the Docker Operator in Airflow
+with the Docker compose deployment.</p>
+<p>Information on the Airflow setup can be found in <a class="reference external" href="https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html">the documentation</a> .</p>
+<p>However, the default setup is not compatible with the Docker Operator,
+as the Docker Operator needs to communicate with the Docker daemon.
+Indeed, it requires to run docker in docker.</p>
+<section id="volume-configuration">
+<h2>Volume configuration<a class="headerlink" href="#volume-configuration" title="Link to this heading">#</a></h2>
+<p>For the worker to access the Docker daemon, we need to mount the Docker socket in the worker container.</p>
+<p>Add to the volume configuration of <code class="docutils literal notranslate"><span class="pre">environment</span></code> in the <code class="docutils literal notranslate"><span class="pre">docker-compose.yaml</span></code> file the following line:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">volumes </span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
+</pre></div>
+</div>
+</section>
+<section id="user-group-configuration">
+<h2>User group configuration<a class="headerlink" href="#user-group-configuration" title="Link to this heading">#</a></h2>
+<p>The worker container needs to be in the same group as the Docker daemon to access the Docker socket.</p>
+<ol class="arabic">
+<li><p>create a group where the Docker daemon runs: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">groupadd</span> <span class="pre">docker</span></code></p></li>
+<li><p>get the GID of the group: <code class="docutils literal notranslate"><span class="pre">getent</span> <span class="pre">group</span> <span class="pre">docker</span> <span class="pre">|</span> <span class="pre">cut</span> <span class="pre">-d:</span> <span class="pre">-f3</span></code>. The output is the GID of the group. It is usually 999.</p></li>
+<li><p>Add the GID to the worker container in the <code class="docutils literal notranslate"><span class="pre">docker-compose.yaml</span></code> file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">group_add</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">999</span><span class="w">   </span><span class="c1"># GID of the docker group</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="additionnal-requirements">
+<h2>Additionnal requirements<a class="headerlink" href="#additionnal-requirements" title="Link to this heading">#</a></h2>
+<p>The worker container needs to have the Docker provider installed.
+One temporary solution is to add the requirements in the airflow configuration</p>
+<p>In the .env file, add the following line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_PIP_ADDITIONAL_REQUIREMENTS</span><span class="o">=</span><span class="s2">&quot;apache-airflow-providers-docker==3.10.0&quot;</span>
+</pre></div>
+</div>
+<p>A more permanent solution is to create a custom image with the requirements installed.
+To do so, create a Dockerfile in the <code class="docutils literal notranslate"><span class="pre">docker-compose.yaml</span></code> directory:</p>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">apache/airflow:2.2.0</span>
+<span class="k">USER</span><span class="w"> </span><span class="s">root</span>
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>apache-airflow-providers-docker<span class="o">==</span><span class="m">3</span>.10.0
+<span class="k">USER</span><span class="w"> </span><span class="s">airflow</span>
+</pre></div>
+</div>
+<p>Freezing the requirements in the Dockerfile is a good practice to avoid any issues with the dependencies.</p>
+<p>Then, update the <code class="docutils literal notranslate"><span class="pre">docker-compose.yaml</span></code> file to use the custom image:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">x-airflow-common</span><span class="p">:</span>
+<span class="w">    </span><span class="nl">&amp;airflow-common</span>
+<span class="w">    </span><span class="c1"># In order to add custom dependencies or upgrade provider packages you can use your extended image.</span>
+<span class="w">    </span><span class="c1"># Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml</span>
+<span class="w">    </span><span class="c1"># and uncomment the &quot;build&quot; line below, Then run `docker-compose build` to build the images.</span>
+<span class="w">    </span><span class="c1">#image: apache/airflow:2.8.3-python3.11</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span><span class="w">  </span><span class="c1"># bluid the dockerfile to install</span>
+</pre></div>
+</div>
+</section>
+<section id="docker-operator-configuration">
+<h2>Docker Operator configuration<a class="headerlink" href="#docker-operator-configuration" title="Link to this heading">#</a></h2>
+<p>Let’s see how to use the Docker Operator in a DAG.
+We will use the new TaskFlow API.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">airflow.decorators</span> <span class="kn">import</span> <span class="n">dag</span><span class="p">,</span> <span class="n">task</span>
+
+<span class="nd">@dag</span><span class="p">(</span><span class="n">schedule_interval</span><span class="o">=</span><span class="s1">&#39;@daily&#39;</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">days_ago</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">catchup</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">docker_operator_dag</span><span class="p">():</span>
+    <span class="nd">@task</span><span class="o">.</span><span class="n">docker</span><span class="p">(</span>
+        <span class="n">image</span><span class="o">=</span><span class="s1">&#39;alpine:latest&#39;</span><span class="p">,</span>
+        <span class="n">task_id</span><span class="o">=</span><span class="s1">&#39;docker_task&#39;</span><span class="p">,</span>
+        <span class="n">command</span><span class="o">=</span><span class="s1">&#39;echo &quot;Hello, World!&quot;&#39;</span><span class="p">,</span>
+        <span class="n">api_version</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="n">auto_remove</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">docker_url</span><span class="o">=</span><span class="s1">&#39;unix://var/run/docker.sock&#39;</span><span class="p">,</span>
+        <span class="n">docker_conn_id</span><span class="o">=</span><span class="s1">&#39;my_docker_conn_id&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">docker_task</span><span class="p">():</span>
+        <span class="k">pass</span>
+
+ <span class="n">docker_task</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Optional configurations to the docker operator are:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;mounts&quot;</span></code>: list of volumes to mount in the container. Needs to be a list of <a class="reference external" href="https://docker-py.readthedocs.io/en/stable/api.html#docker.types.Mount">Mount objects</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">docker.types</span> <span class="kn">import</span> <span class="n">Mount</span>
+<span class="n">mounts</span> <span class="o">=</span> <span class="p">[</span><span class="n">Mount</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;/host/path&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;/container/path&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;bind&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;tty&quot;</span></code>: allocate a pseudo-TTY. Default is False. Setting to True will provide better logs. [To Be checked]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;xcom_all&quot;</span></code>: push all the logs to the XCom. Default is False. Setting to True will push all the logs to the XCom. [To Be checked]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;docker_conn_id&quot;</span></code>: the connection ID to use to connect to the Docker daemon. Default is <code class="docutils literal notranslate"><span class="pre">&quot;docker_default&quot;</span></code>. Creadentials can be set in the Airflow UI or in the .env file. See below for more information.</p></li>
+</ul>
+</section>
+<section id="setting-connection">
+<h2>Setting connection<a class="headerlink" href="#setting-connection" title="Link to this heading">#</a></h2>
+<p>To set the creadentials to a docker connection,
+you can use the UI or the .env file.</p>
+<p>The content of the .env file should be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">AIRFLOW_CONN_</span><span class="o">&lt;</span><span class="n">MY_DOCKER_CONN_id</span><span class="o">&gt;=</span><span class="s1">&#39;{</span>
+    <span class="s2">&quot;conn_type&quot;</span><span class="p">:</span> <span class="s2">&quot;docker&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;the registry host&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;the Port&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;your login or Tocken name&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;your password or Tokken&gt;&quot;</span><span class="p">,</span>
+<span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>As you can see, the connection id is defined in the
+name of the variable if Uppercase and with the prefix <code class="docutils literal notranslate"><span class="pre">AIRFLOW_CONN_</span></code>.
+The connection cna be used in the Docker Operator by setting the <code class="docutils literal notranslate"><span class="pre">docker_conn_id</span></code>
+parameter to the connection id, this time in lowercase, as in the example above: <code class="docutils literal notranslate"><span class="pre">my_docker_conn_id</span></code>.</p>
+</section>
+<section id="other-services">
+<h2>Other services<a class="headerlink" href="#other-services" title="Link to this heading">#</a></h2>
+<p>With the Docker compose deployment, you can add other services to the stack.</p>
+<section id="watchtower">
+<h3>Watchtower<a class="headerlink" href="#watchtower" title="Link to this heading">#</a></h3>
+<p>The Watchtower service can be added to the stack to automatically update the Airflow image.
+It is not necessary when using the Docker Operator with the pull policy set to <code class="docutils literal notranslate"><span class="pre">&quot;always&quot;</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@task</span><span class="o">.</span><span class="n">docker</span><span class="p">(</span>
+    <span class="n">image</span><span class="o">=</span><span class="s1">&#39;alpine:latest&#39;</span><span class="p">,</span>
+    <span class="n">pull_policy</span><span class="o">=</span><span class="s1">&#39;always&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>However, if you want to use the Watchtower service, you can add it to the <code class="docutils literal notranslate"><span class="pre">docker-compose.yaml</span></code> file:
+This setup includes:</p>
+<ul class="simple">
+<li><p>creadentials to pull images from login-protected registries with the <code class="docutils literal notranslate"><span class="pre">/root/.docker/config.json</span></code> volume.</p></li>
+<li><p>telegram notifications if you want to be notified when the image is updated.
+You need to create a bot and get the token and chat id.</p></li>
+<li><p>cleanup of the old images to save space.</p></li>
+<li><p>poll interval to check for new images every 1.5 minutes.</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">watchtower</span><span class="p">:</span>
+<span class="c1"># Watchtower automatically updates the running version of your containerized app</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containrrr/watchtower</span>
+<span class="w">  </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/root/.docker/config.json:/config.json</span>
+<span class="w">  </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WATCHTOWER_NOTIFICATION_URL=telegram://&lt;token&gt;@telegram?chats=&lt;chat_id&gt;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WATCHTOWER_CLEANUP=true</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WATCHTOWER_POLL_INTERVAL=120</span>
+<span class="w">    </span><span class="c1">#- WATCHTOWER_LOG_LEVEL=debug</span>
+<span class="w">    </span><span class="c1">#- DOCKER_API_VERSION=&quot;1.45&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="docker-socket-service">
+<h3>2. Docker socket service<a class="headerlink" href="#docker-socket-service" title="Link to this heading">#</a></h3>
+<p>The Docker socket service can be added to the stack to allow the worker to access the Docker daemon with additional security.
+If you do so, you need to update the Docker Operator configuration to use the new service: change the <code class="docutils literal notranslate"><span class="pre">docker_url</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">&quot;http://docker-socket-proxy:2375&quot;</span></code>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">docker-socket-proxy</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tecnativa/docker-socket-proxy</span>
+<span class="w">  </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">CONTAINERS</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">IMAGES</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">AUTH</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">POST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">privileged</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock:ro</span>
+<span class="w">  </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;2375:2375&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="../re-first-post/">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>New Blog with Sphinx</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    <a href="../testing_gitlab_ci_localy/">
+      <span>Testing Gitlab CI Locally</span>
+      
+      <i class="fa fa-arrow-circle-right" ></i>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-configuration">Volume configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-group-configuration">User group configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additionnal-requirements">Additionnal requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-operator-configuration">Docker Operator configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-connection">Setting connection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-services">Other services</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#watchtower">Watchtower</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-socket-service">2. Docker socket service</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/blog/airflow_compose_docker_in_docker.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Antoine Tavant.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

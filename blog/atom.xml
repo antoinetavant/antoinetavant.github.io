@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <id>https://antoinetavant.github.io/</id>
+  <title>antoinetavant.github.io Blog</title>
+  <updated>2024-05-21T12:39:55.134061+00:00</updated>
+  <link href="https://antoinetavant.github.io/"/>
+  <link href="https://antoinetavant.github.io/blog/atom.xml" rel="self"/>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.10">ABlog</generator>
+  <entry>
+    <id>https://antoinetavant.github.io/blog/lire_meteofrance/</id>
+    <title>Manipuler les prévision météorologiques avec Python</title>
+    <updated>2024-05-21T00:00:00+00:00</updated>
+    <author>
+      <name>Antoine Tavant</name>
+    </author>
+    <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Debut 2024, Météo France à ouvert toutes ses données météorologiques au public, incluant les observations et les prévisions.&lt;/p&gt;
+&lt;/p&gt;
+</content>
+    <link href="https://antoinetavant.github.io/blog/lire_meteofrance/"/>
+    <summary>Debut 2024, Météo France à ouvert toutes ses données météorologiques au public, incluant les observations et les prévisions.</summary>
+    <category term="how-to" label="how-to"/>
+    <published>2024-05-21T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://antoinetavant.github.io/blog/testing_package_version_before_deploying/</id>
+    <title>Checking package version bump in Gitlab CI/CD</title>
+    <updated>2024-05-16T00:00:00+00:00</updated>
+    <author>
+      <name>Antoine Tavant</name>
+    </author>
+    <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Using Gitlab, you can deploy you package to the Gitlab package repository.
+This is a great way to share your package with your team, privately or publicly.&lt;/p&gt;
+&lt;/p&gt;
+</content>
+    <link href="https://antoinetavant.github.io/blog/testing_package_version_before_deploying/"/>
+    <summary>Using Gitlab, you can deploy you package to the Gitlab package repository.
+This is a great way to share your package with your team, privately or publicly.</summary>
+    <category term="gitlab" label="gitlab"/>
+    <category term="how-to" label="how-to"/>
+    <published>2024-05-16T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://antoinetavant.github.io/blog/testing_gitlab_ci_localy/</id>
+    <title>Testing Gitlab CI Locally</title>
+    <updated>2024-05-15T00:00:00+00:00</updated>
+    <author>
+      <name>Antoine Tavant</name>
+    </author>
+    <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Developing a Gitlab CI pipeline can be a bit cumbersome as you have to push your code to a remote repository to test it.
+In this article, we will see how to test a Gitlab CI pipeline locally.&lt;/p&gt;
+&lt;/p&gt;
+</content>
+    <link href="https://antoinetavant.github.io/blog/testing_gitlab_ci_localy/"/>
+    <summary>Developing a Gitlab CI pipeline can be a bit cumbersome as you have to push your code to a remote repository to test it.
+In this article, we will see how to test a Gitlab CI pipeline locally.</summary>
+    <category term="gitlab" label="gitlab"/>
+    <category term="how-to" label="how-to"/>
+    <published>2024-05-15T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://antoinetavant.github.io/blog/airflow_compose_docker_in_docker/</id>
+    <title>Use Docker Operator in Airflow Docker</title>
+    <updated>2024-05-13T00:00:00+00:00</updated>
+    <author>
+      <name>Antoine Tavant</name>
+    </author>
+    <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;In this post, we will see how to use the Docker Operator in Airflow
+with the Docker compose deployment.&lt;/p&gt;
+&lt;/p&gt;
+</content>
+    <link href="https://antoinetavant.github.io/blog/airflow_compose_docker_in_docker/"/>
+    <summary>In this post, we will see how to use the Docker Operator in Airflow
+with the Docker compose deployment.</summary>
+    <category term="airflow" label="airflow"/>
+    <category term="blog" label="blog"/>
+    <published>2024-05-13T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://antoinetavant.github.io/blog/re-first-post/</id>
+    <title>New Blog with Sphinx</title>
+    <updated>2024-04-28T00:00:00+00:00</updated>
+    <author>
+      <name>Antoine Tavant</name>
+    </author>
+    <content type="html">&lt;p class="ablog-post-excerpt"&gt;&lt;p&gt;Following the stepts of &lt;a class="reference external" href="https://www.errbufferoverfl.me/posts/2020/sphinx-blog-part-one/"&gt;errbufferoverfl&lt;/a&gt; and &lt;a class="reference external" href="https://chrisholdgraf.com/blog/2020/sphinx-blogging/"&gt;Chris Holdgraf&lt;/a&gt; I’m also changing my blog to use Sphinx.my blog using Hugo to Sphinx.
+I’m using the &lt;a class="reference external" href="https://ablog.readthedocs.io/en/latest/"&gt;ablog&lt;/a&gt; extension to create the blog posts.&lt;/p&gt;
+&lt;/p&gt;
+</content>
+    <link href="https://antoinetavant.github.io/blog/re-first-post/"/>
+    <summary>Following the stepts of errbufferoverfl and Chris Holdgraf I’m also changing my blog to use Sphinx.my blog using Hugo to Sphinx.
+I’m using the ablog extension to create the blog posts.</summary>
+    <category term="blog" label="blog"/>
+    <category term="sphinx" label="sphinx"/>
+    <published>2024-04-28T00:00:00+00:00</published>
+  </entry>
+</feed>
