@@ -4,7 +4,7 @@
    :language: en
 
 
-chacking package version bump in Gitlab CI/CD
+Checking package version bump in Gitlab CI/CD
 =============================================
 
 Using Gitlab, you can deploy you package to the Gitlab package repository.
@@ -14,8 +14,8 @@ In the case of python packages, you cannot deploy a package with the same versio
 
 Hence, it can be useful to test the version number of the package before deploying it, for instance during a Merge Request.
 
-Geting the current version number
----------------------------------
+Getting the current version number
+----------------------------------
 
 You first need to get the current version number of the package.
 You can do this by reading the ``__version__`` attribute of the package.
@@ -35,7 +35,7 @@ For instance, if the ``__init__.py`` file contains the following line:
 
 The ``VERSION`` variable will be set to ``0.1.0.rc2``.
 
-You can addapt this command to your package structure.
+You can adapt this command to your package structure.
 
 Testing the version number
 --------------------------
@@ -86,7 +86,7 @@ You can also add a ``rules`` section to run this test only on Merge Requests:
 
 This way, the test will be run only when a Merge Request is created or updated.
 And the pipeline will fail if the version number is already published,
-hence enforcing the version number incrementation before merging the Merge Request.
+hence enforcing the version number bump before merging the Merge Request.
 
 
 
